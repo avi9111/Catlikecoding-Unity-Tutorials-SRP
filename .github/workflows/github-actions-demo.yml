@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Build in TuesDay and Saturday Demo
 on: 
   schedule:
     - cron: '30 7 * * 2,6'
