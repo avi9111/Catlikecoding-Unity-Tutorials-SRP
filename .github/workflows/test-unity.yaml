@@ -1,0 +1,11 @@
+name: Test Unity
+on:
+  workflow_dispatch: {}
+jobs:
+  activation:
+    name: Test Unity 🖥️
+    runs-on: ubuntu-latest
+    steps:
+    - name: Unity - Test runner
+      uses: game-ci/unity-test-runner@v2.0.2
+
