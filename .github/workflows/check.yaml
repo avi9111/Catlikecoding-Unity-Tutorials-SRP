@@ -1,0 +1,15 @@
+name: Check Unity
+on:
+  workflow_dispatch: {}
+jobs:
+  activation:
+    name: Check if UNITY_SERIAL is set in github secrets 🖥️
+    runs-on: ubuntu-latest
+    outputs:
+      is_unity_serial_set: ${{ steps.checkLicense_job.outputs.is_unity_serial_set }}
+    steps:
+      - name: Check whether Unity activation requests should be done
+        id: checkLicense_job
+        run: |
+            echo "Skip activation job: ${{ secrets.UNITY_SERIAL != '' }}"
+            echo "::set-output name=is_unity_serial_set::${{ secrets.UNITY_SERIAL != '' }}"
