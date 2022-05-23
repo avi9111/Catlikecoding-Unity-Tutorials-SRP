@@ -3,7 +3,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Experimental.Rendering;
 using Conditional = System.Diagnostics.ConditionalAttribute;
 
-public class MyPipeline : RenderPipeline
+public class MyPipeline: RenderPipeline
 {
     CullingResults cullingResults;
     Material errorMaterial;
@@ -47,7 +47,7 @@ public class MyPipeline : RenderPipeline
             (clearFlags & CameraClearFlags.Color) != 0, camera.backgroundColor);
         context.ExecuteCommandBuffer(commandBuffer);
         commandBuffer.Clear();
-
+        //TODO:这里有内存分配
         cullingResults = context.Cull(ref cullingParameters);
         SortingSettings sortingSettings = new SortingSettings(camera);
         sortingSettings.criteria = SortingCriteria.CommonOpaque;
