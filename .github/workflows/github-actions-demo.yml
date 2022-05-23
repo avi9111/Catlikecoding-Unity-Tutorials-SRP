@@ -1,7 +1,9 @@
 name: GitHub Actions Demo
-on: [push]
-jobs:
-  Explore-GitHub-Actions:
+on: 
+  schedule:
+    - cron: '30 7 * * 2,6'
+  workflow_dispatch: {}
+Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
